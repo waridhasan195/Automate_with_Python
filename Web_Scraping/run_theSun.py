@@ -1,2 +1,6 @@
 
-from Scraping.news_headlines import TheSun
+
+from Scrapimg.news_hedlines import TheSun
+bot = TheSun()
+bot.landPage()
+
