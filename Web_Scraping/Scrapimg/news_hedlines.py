@@ -13,9 +13,18 @@ import pandas as pd
 # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 
+# "Program run without Opening Browser"
+    # path = "D:/New_Start/Automate_with_Python/Automate_with_Python/ChromeDriver/chromedriver.exe"
+    # from selenium.webdriver.chrome.options import Options
+    # options = Options()
+    # options.headless = True
+    # service = Service(executable_path=path)
+    # driver = webdriver.Chrome(service=service, options=options)
+
+
 URL = 'https://www.thesun.co.uk/sport/football/'
-# path = "D:/New_Start/Automate_with_Python/Automate_with_Python/ChromeDriver/chromedriver.exe"
-# path = "D:/New_Start/Automate_with_Python/Automate_with_Python/edgedriver_win64/msedgedriver.exe"
+    # path = "D:/New_Start/Automate_with_Python/Automate_with_Python/ChromeDriver/chromedriver.exe"
+    # path = "D:/New_Start/Automate_with_Python/Automate_with_Python/edgedriver_win64/msedgedriver.exe"
 
 
 class TheSun(webdriver.Chrome):
