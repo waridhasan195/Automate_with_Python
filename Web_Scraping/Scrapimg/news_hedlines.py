@@ -1,10 +1,3 @@
-from selenium  import webdriver
-import os
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-import pandas as pd
-
 
 # # profile = webdriver.FirefoxProfile()
 # # profile.accept_untrusted_certs = True
@@ -22,9 +15,24 @@ import pandas as pd
     # driver = webdriver.Chrome(service=service, options=options)
 
 
+from selenium  import webdriver
+import os
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+import pandas as pd
+from datetime import datetime
+import sys
+
+
 URL = 'https://www.thesun.co.uk/sport/football/'
     # path = "D:/New_Start/Automate_with_Python/Automate_with_Python/ChromeDriver/chromedriver.exe"
     # path = "D:/New_Start/Automate_with_Python/Automate_with_Python/edgedriver_win64/msedgedriver.exe"
+
+application_path = os.path.dirname(sys.executable)
+
+now = datetime.now()
+Day_Month_Year = now.strftime("%d%m%y")
 
 
 class TheSun(webdriver.Chrome):
@@ -62,8 +70,11 @@ class TheSun(webdriver.Chrome):
     
         my_dict = {'Title':titles, 'Sub_Title': sub_titles, 'News_Link': news_links}
         df_headlines = pd.DataFrame(my_dict)
-        df_headlines.to_csv('Headlines.csv')
+        file_name = f'TheSun-{Day_Month_Year}.csv'
+        final_path = os.path.join(application_path, file_name)
 
+        df_headlines.to_csv(final_path)
+    
         self.quit()
         print("All Complete")
 
